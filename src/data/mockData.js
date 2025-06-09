@@ -1,4 +1,3 @@
-// Mock data para eventos e bilhetes
 export const mockEvents = [
   {
     id: 1,

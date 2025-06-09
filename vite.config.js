@@ -11,10 +11,6 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  define: {
-    'process.env.DISABLE_MANUS_BRANDING': 'true',
-    'process.env.DISABLE_EDIT_MODE': 'true',
-  },
   build: {
     rollupOptions: {
       output: {

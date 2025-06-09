@@ -12,7 +12,6 @@ const EventsPage = () => {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
-  // Filtrar eventos
   const filteredEvents = events.filter(event => {
     const matchesSearch = event.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          event.local.toLowerCase().includes(searchTerm.toLowerCase());
@@ -20,7 +19,6 @@ const EventsPage = () => {
     return matchesSearch && matchesCategory;
   });
 
-  // Obter categorias únicas
   const categories = ['all', ...new Set(events.map(event => event.categoria))];
 
   const handleAddTicket = (event) => {

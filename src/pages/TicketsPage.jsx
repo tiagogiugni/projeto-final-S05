@@ -9,7 +9,6 @@ const TicketsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState('all');
 
-  // Filtrar bilhetes
   const filteredTickets = tickets.filter(ticket => {
     const matchesSearch = ticket.evento.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          ticket.evento.local.toLowerCase().includes(searchTerm.toLowerCase());

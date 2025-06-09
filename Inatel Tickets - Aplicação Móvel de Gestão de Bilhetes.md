@@ -1,6 +1,6 @@
 # Inatel Tickets - Aplicação Móvel de Gestão de Bilhetes
 
-Uma aplicação móvel responsiva desenvolvida em React para compra e gestão de bilhetes de eventos do Instituto Nacional de Telecomunicações (Inatel).
+Uma aplicação móvel responsiva desenvolvida em React para compra e gestão de bilhetes de eventos do Inatel.
 
 ## 🚀 Funcionalidades Principais
 

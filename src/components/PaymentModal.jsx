@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button.jsx';
 import { mockPaymentMethods } from '../data/mockData';
 
 const PaymentModal = ({ isOpen, onClose, event, onPaymentComplete }) => {
-  const [currentStep, setCurrentStep] = useState('method'); // method, details, confirmation
+  const [currentStep, setCurrentStep] = useState('method'); 
   const [selectedMethod, setSelectedMethod] = useState(null);
   const [paymentData, setPaymentData] = useState({});
 
@@ -24,7 +24,6 @@ const PaymentModal = ({ isOpen, onClose, event, onPaymentComplete }) => {
 
   const handlePaymentSubmit = () => {
     setCurrentStep('confirmation');
-    // Simular processamento
     setTimeout(() => {
       onPaymentComplete();
       onClose();

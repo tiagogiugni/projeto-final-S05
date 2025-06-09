@@ -1,16 +1,14 @@
 import React, { createContext, useContext, useReducer } from 'react';
 import { mockEvents, mockTickets, mockUser } from '../data/mockData';
 
-// Estado inicial
 const initialState = {
   user: mockUser,
   events: mockEvents,
   tickets: mockTickets,
   cart: [],
-  currentPage: 'events'
+  currentPage: 'login'
 };
 
-// Tipos de ações
 const actionTypes = {
   ADD_TO_CART: 'ADD_TO_CART',
   REMOVE_FROM_CART: 'REMOVE_FROM_CART',
@@ -21,7 +19,6 @@ const actionTypes = {
   PURCHASE_TICKET: 'PURCHASE_TICKET'
 };
 
-// Reducer
 function appReducer(state, action) {
   switch (action.type) {
     case actionTypes.ADD_TO_CART:
@@ -74,7 +71,6 @@ function appReducer(state, action) {
       };
     
     case actionTypes.PURCHASE_TICKET:
-      // Simula a compra de um bilhete
       const event = state.events.find(e => e.id === action.payload.eventoId);
       if (event) {
         const newPurchasedTicket = {
@@ -102,11 +98,8 @@ function appReducer(state, action) {
       return state;
   }
 }
-
-// Contexto
 const AppContext = createContext();
 
-// Provider
 export function AppProvider({ children }) {
   const [state, dispatch] = useReducer(appReducer, initialState);
 

@@ -13,6 +13,8 @@ function AppContent() {
 
   const renderCurrentPage = () => {
     switch (currentPage) {
+            case 'login':
+        return 'Login';
       case 'events':
         return <EventsPage />;
       case 'tickets':
@@ -32,15 +34,21 @@ function AppContent() {
         return 'Meus Bilhetes';
       case 'profile':
         return 'Meu Perfil';
+      case 'login':
+        return 'Login'
       default:
-        return 'Inatel Tickets';
+        return 'Login';
     }
   };
 
   return (
-    <Layout title={getPageTitle()}>
-      {renderCurrentPage()}
-    </Layout>
+    currentPage === 'login' ? (
+      <LoginPage />
+    ) : (
+      <Layout title={getPageTitle()}>
+        {renderCurrentPage()}
+      </Layout>
+    )
   );
 }
 
