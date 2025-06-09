@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="disable-manus-branding" content="true" />
+    <meta name="disable-edit-mode" content="true" />
+    <meta name="manus-edit-mode" content="disabled" />
+    <meta name="generator" content="Inatel Tickets" />
+    <title>Inatel Tickets - Gestão de Bilhetes</title>
+    <style>
+      /* Hide any Manus branding elements */
+      [data-manus-branding],
+      [class*="manus-branding"],
+      [id*="manus-branding"],
+      .manus-watermark,
+      .made-with-manus {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // Disable any edit mode functionality
+      window.DISABLE_EDIT_MODE = true;
+      window.DISABLE_MANUS_BRANDING = true;
+      
+      // Remove any Manus branding elements that might be added dynamically
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          mutation.addedNodes.forEach(function(node) {
+            if (node.nodeType === 1) {
+              // Check for Manus branding elements
+              if (node.textContent && node.textContent.includes('Made with Manus')) {
+                node.style.display = 'none';
+                node.remove();
+              }
+              // Check for edit mode elements
+              if (node.className && (node.className.includes('edit') || node.className.includes('manus'))) {
+                node.style.display = 'none';
+                node.remove();
+              }
+            }
+          });
+        });
+      });
+      
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    </script>
+  </body>
+</html>
